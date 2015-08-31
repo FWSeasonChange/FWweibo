@@ -1,0 +1,3 @@
+1.把TabBarViewController的创建四个子控制器和设置自定义的TabBar封装，两个为不同的业务逻辑
+2.加号按钮弹出一个为“发微博的按钮”，以modal的形式，但是控制器的切换是在控制器中才可以实现的，也就是说push..，pop..，present..等方法再控制器中才有
+3.设置代理控制器为FWTabBar的代理,弹出一个自定义的ViewController需要包装一个UINavigationController才可以进行控制器切换

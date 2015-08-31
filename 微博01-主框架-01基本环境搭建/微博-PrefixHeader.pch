@@ -1,0 +1,46 @@
+//
+//  微博-PrefixHeader.pch
+//  微博01-主框架-01基本环境搭建
+//
+//  Created by 付玮 on 15/8/18.
+//  Copyright (c) 2015年 付玮. All rights reserved.
+//
+
+#ifndef __01_____01__________PrefixHeader_pch
+#define __01_____01__________PrefixHeader_pch
+
+//应用信息
+#define FWAppKey @"39696853"
+#define FWAppSecret @"a9825e5b2b3954f2de5ff104c849cb7f"
+#define FWRedirect_uri @"http://www.hao123.com"
+
+
+
+//屏幕高度，判断屏幕尺寸
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+//scrollerView背景颜色
+#define  FWColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+//随机色
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+//    判断当前iOS版本
+#define iOSVersion [[UIDevice currentDevice].systemVersion floatValue]
+
+#import "UIImage+Extensions.h"
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+
+//UINavigationBar字体大小
+#define FWNavigationBarFont [UIFont systemFontOfSize:20]
+
+#ifdef DEBUG //处于调试状态
+
+#define FWLog(...) NSLog(__VA_ARGS__) //宏就是NSLog，(...)可变参数
+
+#else //发布状态
+
+#define FWLog(...)  //宏什么都没有
+
+#endif
+
+#endif

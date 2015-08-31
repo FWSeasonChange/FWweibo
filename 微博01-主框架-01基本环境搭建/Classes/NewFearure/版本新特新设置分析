@@ -1,0 +1,19 @@
+1.新特新显示是一个UIScrollView需要一个新的控制器，那就是进行判断如果是用户使用第一次使用新版本就显示版本特性，比较版本号，第一次装此软件也要显示版本特性，如果不是第一次使用就换做显示app的控制器，版本号存储到沙盒里面。
+2.利用NSUserDefaults存储上一次版本号
+3.尝试打印info.plist文件查看版本号的key，NSLog(@"%@",[NSBundle mainBundle].infoDictionary);
+4.取出当前版本号和上一次版本号比较不同则是新版本，因为版本号则能变高不能变低，第一次使用新版本则显示新特新控制器，版本号相同就显示界面
+5.设置FWFeatureViewController的ScrollerView注意设置屏幕大小对应的图片大小，图片默认选择屏幕大小加载只适用于lanchimage，其他地方需要判断，判断根据屏幕的高度4inch高度为568，当在images.xcassets中有图片为unassigned是xcode未识别图片不知道要干什么，不会加载到mianBundle中无法找到，在images.xcassets右键加入4inch
+6.图片滚东实现，ScrollerView当图片较多时，吧大量图片都加载很耗内存，可以创建3个UIImageView当第二个图片完全显示的时候移除一地个ImageView当第二张图片完全小时的时候，在后面创建第四个UIImageView加载第四张图片，需要时刻监听SCrollerView的滚动，创建UIImageView和销毁UIimageView，
+6.1还可以通过CollectionView实现，CollectionView自动实现了cell利用
+
+
+/*
+// kCFBundleVersionKey是core Foundation框架里面的字符串CFStringRef，
+// NSString/NSArray... :Foundation
+// CFStringRef/CFArrayRef... :Core Foundation
+// 两个框架可以进行转换，利用桥接(__bridge NSString *),(__bridge CFStringRef)
+*/
+//    NSString *str1 = @"打算打算";
+//    CFStringRef str = (__bridge CFStringRef)(str1);
+//    NSString *versionKey = (__bridge NSString *)kCFBundleVersionKey;
+
